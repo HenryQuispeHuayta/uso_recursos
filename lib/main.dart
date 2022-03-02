@@ -1,110 +1,174 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-
-
-void main(){
-  runApp(const MyApp());
-   
+void main() {
+  runApp(MaterialApp(
+    title: 'Uso de recursos',
+    home: Inicio(),
+  ));
 }
 
-class MyApp extends StatelessWidget{
-  const MyApp({Key? key}): super(key: key);
-
+class Inicio extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Uso de recursos',
-        home: Scaffold(
-            appBar: AppBar(
-                title: const Text('Uso de recursos'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Inicio'),
+      ),
+      body: Column(
+          children: [
+            const SizedBox(
+                height: 40,
             ),
-            body: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Column(
-                      children: <Widget>[
-                        const Text(
-                            'Henry Quispe Huayta',
-                            style: TextStyle(fontSize: 35),
-                        ),
-                        Text(
-                            '8359969',
-                            style: TextStyle(fontSize: 30),
-                        ),
-                      ],
-                  ),
-                  const Text(
-                      'BANCO UNION',
-                      style: TextStyle(fontSize: 20),
-                  ),
-                  Column(
-                      mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                        ElevatedButton(
-                            onPressed: (){
-                              Navigator.push(
-                                  context, 
-                                  MaterialPageRoute(builder: (context) => clientes()),
-                              );
-                            }, 
-                            child: const Text('CLIENTES')
-                        ),
-                        ElevatedButton(
-                            onPressed: (){}, 
-                            child: const Text('AHORROS')
-                        ),
-                        ElevatedButton(
-                            onPressed: (){}, 
-                            child: const Text('PRESTAMOS')
-                        ),
-                        ElevatedButton(
-                            onPressed: (){}, 
-                            child: const Text('PLAZO FIJO')
-                        ),
-                        ElevatedButton(
-                            onPressed: (){}, 
-                            child: const Text('FINALIZAR')
-                        ),
-                      ],
-                  ),
-                  Text(''),
-                ],
+            const Text(
+                'Henry Quispe Huayta',
+                style: TextStyle(fontSize: 40),
             ),
-        ),
+            const Text(
+                '8359969',
+                style: TextStyle(fontSize: 35),
+            ),
+            const SizedBox(
+                height: 40,
+            ),
+            const Text(
+                'BANCO UNION',
+                style: TextStyle(fontSize: 30),
+            ),
+            const SizedBox(
+                height: 60,
+            ),
+            Center(
+                child: RaisedButton(
+                    child: Text('Clientes'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Clientes()),
+                      );
+                    },
+                ),
+            ),
+            Center(
+                child: RaisedButton(
+                    child: Text('Ahorros'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Ahorros()),
+                      );
+                    },
+                ),
+            ),
+            Center(
+                child: RaisedButton(
+                    child: Text('Prestamos'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Prestamos()),
+                      );
+                    },
+                ),
+            ),
+            Center(
+                child: RaisedButton(
+                    child: Text('Plazo Fijo'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Plazofijo()),
+                      );
+                    },
+                ),
+            ),
+            Center(
+                child: RaisedButton(
+                    child: Text('Finalizar'),
+                    onPressed: () {
+                      SystemNavigator.pop();
+                    },
+                ),
+            ),
+          ],
+      ),
     );
   }
 }
 
-class clientes extends StatelessWidget{
+class Clientes extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Clientes"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('VOLVER'),
+        ),
+      ),
+    );
+  }
+}
 
-    @override
-    Widget build(BuildContext context){
-      return Scaffold(
-          appBar: AppBar(
-              title: Text('Uso de recursos'),
-                                  
-          ),
-          body: Column(
-              children: <Widget>[
-                const Text(
-                    'CLIENTES',
-                     style: TextStyle(fontSize: 50),                                                           
-                ),
-                ElevatedButton(
-                    onPressed: (){
-                      Navigator.pop(context);
-                                                            
-                    }, 
-                    child: const Text('VOLVER'), 
-                                                    
-                ),
-                            
-              ],
-                      
-          ),
-              
-      );
-                
-    }
-    
+class Ahorros extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Ahorros"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('VOLVER'),
+        ),
+      ),
+    );
+  }
+}
+
+class Prestamos extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Prestamos"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('VOLVER'),
+        ),
+      ),
+    );
+  }
+}
+
+class Plazofijo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Plazo Fijo"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('VOLVER'),
+        ),
+      ),
+    );
+  }
 }
